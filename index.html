@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyMovieBook - Movie Reviews & Wishlist</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        <span>🎬</span>
+        MyMovieBook
+    </div>
+
+    <nav>
+        <button class="nav-btn active" data-section="home">
+            Home
+        </button>
+
+        <button class="nav-btn" data-section="watched">
+            Watched
+        </button>
+
+        <button class="nav-btn" data-section="wishlist">
+            Wishlist
+        </button>
+    </nav>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+    <!-- ================= HOME ================= -->
+
+    <section id="home" class="section active-section">
+
+        <div class="hero">
+
+            <div class="hero-content">
+
+                <p class="hero-small">
+                    YOUR PERSONAL MOVIE JOURNAL
+                </p>
+
+                <h1>
+                    Movies you watched.<br>
+                    Stories you remember.
+                </h1>
+
+                <p>
+                    Search movies, rate what you watched,
+                    write your thoughts and build your personal
+                    movie collection.
+                </p>
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search for a movie..."
+                    >
+
+                    <button id="searchBtn">
+                        Search
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DASHBOARD -->
+
+        <div class="dashboard">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">🎬</div>
+
+                <div>
+                    <span>Total Watched</span>
+                    <strong id="watchedCount">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">❤️</div>
+
+                <div>
+                    <span>Wishlist</span>
+                    <strong id="wishlistCount">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">⭐</div>
+
+                <div>
+                    <span>Average Rating</span>
+                    <strong id="averageRating">0.0</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH RESULTS -->
+
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">DISCOVER</p>
+
+                    <h2>
+                        Search Movies
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="searchResults" class="movie-grid">
+
+                <div class="empty-message">
+                    Search for a movie to get started.
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- ================= WATCHED ================= -->
+
+    <section id="watched" class="section">
+
+        <div class="page-header">
+
+            <div>
+                <p class="section-label">
+                    MY COLLECTION
+                </p>
+
+                <h1>
+                    Watched Movies
+                </h1>
+
+                <p>
+                    Movies you've watched and reviewed.
+                </p>
+            </div>
+
+        </div>
+
+        <div id="watchedMovies" class="review-grid"></div>
+
+    </section>
+
+
+    <!-- ================= WISHLIST ================= -->
+
+    <section id="wishlist" class="section">
+
+        <div class="page-header">
+
+            <div>
+                <p class="section-label">
+                    WATCH LATER
+                </p>
+
+                <h1>
+                    My Wishlist
+                </h1>
+
+                <p>
+                    Movies you want to watch in the future.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div id="wishlistMovies" class="movie-grid"></div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= MOVIE MODAL ================= -->
+
+<div id="movieModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" id="closeModal">
+            ×
+        </button>
+
+        <div id="movieDetails"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= REVIEW MODAL ================= -->
+
+<div id="reviewModal" class="modal">
+
+    <div class="modal-content review-modal">
+
+        <button class="close-btn" id="closeReviewModal">
+            ×
+        </button>
+
+        <div id="reviewMovieInfo"></div>
+
+        <h2>
+            Your Review
+        </h2>
+
+        <p class="form-label">
+            Your Rating
+        </p>
+
+        <div class="star-input" id="starInput">
+
+            <button data-rating="1">★</button>
+            <button data-rating="2">★</button>
+            <button data-rating="3">★</button>
+            <button data-rating="4">★</button>
+            <button data-rating="5">★</button>
+
+        </div>
+
+        <textarea
+            id="reviewText"
+            placeholder="Write what you thought about this movie..."
+        ></textarea>
+
+        <button
+            class="primary-btn"
+            id="saveReviewBtn"
+        >
+            Save Review
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
